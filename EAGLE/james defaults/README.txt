@@ -1,0 +1,1 @@
+drag and drop these files into the c/eagle/scr  directory to change some of the defaults and key combos that I like.

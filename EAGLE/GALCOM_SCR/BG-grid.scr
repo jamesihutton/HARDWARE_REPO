@@ -1,0 +1,69 @@
+# BrainGrid GRID Configuration Script
+
+BRD:
+GRID mm 0.5 2 lines on alt mm 0.1;
+MENU '[designlink22.png] Search and order : Run designlink-order.ulp -general;'\
+     '[pcb-service.png] PCB Service : Run pcb-service.ulp;'\
+     '[idf-3d.png] Export to IDF 3D format: Run eagleidfexporter.ulp;'\
+;
+
+SCH:
+#Grid Default;
+GRID inch 0.05 2 lines off alt inch 0.01 mil;
+Change Width 0.006in;
+MENU '[designlink22.png] Search and order {\
+                                          General : Run designlink-order.ulp -general; |\
+                                          Schematic : Run designlink-order.ulp; \
+                                          }'\
+     '[LTspice.png] LT Spice simulation {\
+                    Export: RUN ltspice.ulp /E; |\
+                    Export Setup: RUN ltspice.ulp /E /S; |\
+                    Export Group: RUN ltspice.ulp /E /G; |\
+                    Import: RUN ltspice.ulp /I; \
+     }' \
+;
+
+LBR:
+MENU '[designlink22.png] Search and order : Run designlink-order.ulp -general;'\
+     '[LTspice.png] LT Spice simulation {\
+                  Export: RUN ltspice.ulp /E; |\
+                  Import: RUN ltspice.ulp /I; \
+     }'\
+     '[pads-pcb.png] PADS package import : RUN import-pads-powerpcb-v5;' \
+;
+
+DEV:
+GRID mm 0.5 2 lines on alt mm 0.1;
+#Grid Default;
+MENU '[designlink22.png] Search and order : Run designlink-order.ulp -general;' \
+     '[LTspice.png] LT Spice simulation {\
+                  Export: RUN ltspice.ulp /E; |\
+                  SpiceOrder : RUN spiceorder.ulp; |\
+                  SpiceModel: ATTRIBUTE SPICEMODEL |\
+                  Value2: ATTRIBUTE VALUE2 |\
+                  Import: RUN ltspice.ulp /I; \
+     }'\
+     '[pads-pcb.png] PADS package import : RUN import-pads-powerpcb-v5;'\
+;
+
+SYM:
+#Grid Default On;
+GRID inch 0.05 2 lines off alt inch 0.01 mil;
+Change Width 0.010in;
+MENU '[LTspice.png] LT Spice simulation {\
+                  Export: RUN ltspice.ulp /E; |\
+                  SpiceOrder : RUN spiceorder.ulp; |\
+                  Import: RUN ltspice.ulp /I; \
+     }'\
+;
+
+PAC:
+#Grid Default On;
+GRID mm 0.5 2 lines on alt mm 0.1;
+Change Width 0.005in;
+Change Size 0.050in;
+MENU '[LTspice.png] LT Spice simulation {\
+                  Import: RUN ltspice.ulp /I; \
+     }'\
+     '[pads-pcb.png] PADS package import : RUN import-pads-powerpcb-v5;' \
+     ;

@@ -1,0 +1,20 @@
+# Command Menu Setup
+#
+# This is an example that shows how to set up a complex command menu,
+# including submenus and command aliases. To display the command menu in
+# the editor windows you have to activate the option 'Command texts'
+# in the 'Options/User Interface' menu.
+
+MENU
+     'Display {\
+                Top       : Display None Top    Pads Vias Dimension; |\
+                Bottom    : Display None Bottom Pads Vias Dimension; |\
+                Placeplan {\
+                            Top    : Display None tPlace Dimension; |\
+                            Bottom : Display None bPlace Dimension;\
+                          }\
+                Dimensions: Display None tPlace Dimension Measures tDocu bDocu Document Milling Holes Reference; |\
+              }'\
+     '---'\
+     'Fit : Window Fit;'\
+     ;
