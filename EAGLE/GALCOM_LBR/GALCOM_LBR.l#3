@@ -559,7 +559,7 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 </device>
 </devices>
 </deviceset>
-<deviceset name="RES_0402" prefix="R" uservalue="yes">
+<deviceset name="RES_0402" prefix="R">
 <description>Generic 0402 Resistor</description>
 <gates>
 <gate name="G$1" symbol="RESISTOR" x="0" y="0"/>
@@ -576,19 +576,22 @@ Commonly used for small ceramic capacitors. Like our 0.1uF (http://www.sparkfun.
 </device>
 </devices>
 </deviceset>
-<deviceset name="CAP_0402" prefix="C" uservalue="yes">
+<deviceset name="CAP_0402" prefix="C">
 <description>Generic 0402 capacitor</description>
 <gates>
 <gate name="G$1" symbol="CAP_SPARKFUN" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="0402-TIGHT">
+<device name="-0402T-16V-10%" package="0402-TIGHT">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="PROD_ID" value="CAP-12416" constant="no"/>
+<attribute name="VALUE" value="0.1uF" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
